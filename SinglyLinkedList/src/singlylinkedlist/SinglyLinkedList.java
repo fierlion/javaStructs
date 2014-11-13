@@ -53,16 +53,18 @@ public class SinglyLinkedList {
      */
     public void add(int index, int value) {
 	if (index < size) {
-	    ListNode current = head;
-	    ListNode prev = head;
-
-	    for (int i = 0; i < index; i++) {
-		prev = current;
-		current = current.next;
+	    if (index == 0) {
+		head = new ListNode (value, head);
 	    }
-	    ListNode noobie = new ListNode(value, current);
-	    if (index > 0) prev.next = noobie;
-	    else if (index == 0) head = noobie;
+	    else {
+		ListNode current = head;
+		ListNode prev = head;
+		for (int i = 0; i < index; i++) {
+		    prev = current;
+		    current = current.next;
+		}
+		prev.next = new ListNode(value, current);
+	    }
 	    size += 1;
 	}
 	else {
