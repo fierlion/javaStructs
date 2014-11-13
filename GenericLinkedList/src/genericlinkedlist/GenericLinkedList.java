@@ -51,7 +51,18 @@ public class GenericLinkedList<E> implements List<E>{
 
     @Override
     public void add(E value) {
-	
+	if (head != null){
+	    ListNode current = head;
+	    ListNode prev = head;
+	    while (current.next != null){
+		current = current.next;
+	    }
+	    current.next = new ListNode(value);
+	}
+	else {
+	    head = new ListNode(value);
+	}
+	size += 1;
     }
 
     @Override
