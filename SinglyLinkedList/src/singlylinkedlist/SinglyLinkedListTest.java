@@ -25,5 +25,20 @@ public class SinglyLinkedListTest {
 	list1.remove(4);
 	System.out.println(list1.toString());
 	
+	System.out.println("***Interface tests follow***");
+	
+	//from Reges/Stepp "Building Java Programs"
+	SinglyLinkedList list2 = new SinglyLinkedList();
+	processList(list2);
     }
+    
+    public static void processList(IntList list) {
+	list.add(18);
+	list.add(27);
+	list.add(93);
+	System.out.println(list);
+	list.remove(1);
+	System.out.println(list);
+    }
+	
 }
