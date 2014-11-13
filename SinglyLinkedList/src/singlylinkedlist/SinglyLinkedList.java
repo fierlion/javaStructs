@@ -54,7 +54,7 @@ public class SinglyLinkedList {
     public void add(int index, int value) {
 	if (index < size) {
 	    if (index == 0) {
-		head = new ListNode (value, head);
+		head = new ListNode(value, head);
 	    }
 	    else {
 		ListNode current = head;
