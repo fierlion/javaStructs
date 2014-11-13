@@ -15,7 +15,11 @@ public class ListNode<E> {
     public E data;
     
     public ListNode() {
-	this(null,null,null);
+	this(null, null, null);
+    }
+    
+    public ListNode(E value){
+	this(null, null, value);
     }
     
     public ListNode(ListNode prevIn, ListNode nextIn, E dataIn) {
