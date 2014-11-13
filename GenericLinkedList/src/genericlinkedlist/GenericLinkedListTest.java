@@ -11,6 +11,8 @@ package genericlinkedlist;
  */
 public class GenericLinkedListTest {
     public static void main(String [] args) {
-	
+	GenericLinkedList <String> list1 = new GenericLinkedList<>();
+	list1.add("Hi there");
+	System.out.println(list1.size());
     }
 }
