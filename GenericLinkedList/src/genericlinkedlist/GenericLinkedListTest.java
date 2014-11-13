@@ -6,16 +6,11 @@
 package genericlinkedlist;
 
 /**
- * @author rayfoote
+ *
+ * @author rfoote
  */
 public class GenericLinkedListTest {
-    
-    public static void main(String[] args) {
-        GenericLinkedList<String> list1 = new GenericLinkedList<>();
-        System.out.println(list1.getSize());
-        list1.addBack("Howdy");
-        list1.addFront("Nope");
-        System.out.println(list1.getSize());
+    public static void main(String [] args) {
+	
     }
-    
 }

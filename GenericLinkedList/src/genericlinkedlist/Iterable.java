@@ -5,10 +5,12 @@
  */
 package genericlinkedlist;
 
-/**
- *
- * @author rfoote
- */
-public class GenericLinkedList {
+import java.util.Iterator;
 
+/**
+ * @author rfoote
+ * @param <E>
+ */
+public interface Iterable<E> {
+    public Iterator<E> iterator();
 }
