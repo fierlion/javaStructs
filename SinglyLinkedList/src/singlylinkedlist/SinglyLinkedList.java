@@ -114,6 +114,7 @@ public class SinglyLinkedList {
 		prev.next = current.next;
 		current.next = null;
 	    }
+	    size -= 1;
 	}
 	else {
 	    throw new IllegalArgumentException("size < " + index);
