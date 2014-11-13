@@ -9,7 +9,7 @@ package singlylinkedlist;
  *
  * @author rfoote
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList implements IntList {
     private ListNode head;
     private int size;
     
