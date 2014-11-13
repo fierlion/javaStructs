@@ -73,7 +73,54 @@ public class SinglyLinkedList {
     }
     
     /**
-     * 
+     * pre: list is in sorted (increasing) order
+     * post: value is added to the list to preserve
+     * sorted order.
+     * Duplicates allowed.
+     * @param value 
+     */
+    public void addSorted(int value) {
+	if (head == null || head.data >= value) {
+	    head = new ListNode(value, head);
+	}
+	else {
+	    ListNode current = head;
+	    ListNode prev = head;
+	    while (current != null && current.data < value) {
+		prev = current;
+		current = current.next;
+	    }
+	    prev.next = new ListNode(value, current);
+	}
+	size += 1;
+    }
+    
+    /**
+     * removes element at position index
+     * @param index pre 0 <= index < size
+     */
+    public void remove(int index){
+	if (index < size) {
+	    if (index == 0) {
+		head = head.next;
+	    } 
+	    else {
+		ListNode current = head;
+		ListNode prev = head;
+		for (int i = 0; i < index; i++){
+		    prev = current;
+		    current = current.next;
+		}
+		prev.next = current.next;
+		current.next = null;
+	    }
+	}
+	else {
+	    throw new IllegalArgumentException("size < " + index);
+	}
+    }
+    
+    /**
      * @param index pre 0 <= index < size
      * @return data at position index
      */
@@ -111,6 +158,5 @@ public class SinglyLinkedList {
 	    return result;
 	}
     }
-    
-
+   
 }
