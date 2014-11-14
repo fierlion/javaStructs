@@ -163,4 +163,23 @@ public class GenericLinkedList<E> implements List<E>{
 	    return result + " ]";
 	}
     }
+    
+    @Override
+    public void reverse(){
+	if (size > 0) {
+	    ListNode temp = head;
+	    head = tail;
+	    tail = temp;
+	    ListNode current = head;
+	    while(current != null) {
+		temp = current.next;
+		current.next = current.prev;
+		current.prev = temp;
+		current = current.next;
+	    }
+	}
+	else {
+	    throw new IllegalArgumentException("array is size 0");
+	}
+    }
 }
