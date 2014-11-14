@@ -12,7 +12,19 @@ package genericlinkedlist;
 public class GenericLinkedListTest {
     public static void main(String [] args) {
 	GenericLinkedList <String> list1 = new GenericLinkedList<>();
-	list1.add("Hi there");
+	list1.add("Prokofyev");
+	list1.add("Tchaikovsky");
+	list1.add("Rachmaninov");
+	
 	System.out.println(list1.size());
+	System.out.println(list1.toString());
+	
+	GenericLinkedList <Integer> list2 = new GenericLinkedList<>();
+	list2.add(Integer.valueOf(6));
+	list2.add(Integer.valueOf(235));
+	list2.add(Integer.valueOf(12));
+	
+	System.out.println(list2.size());
+	System.out.println(list2.toString());
     }
 }
