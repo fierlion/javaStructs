@@ -14,6 +14,7 @@ public interface List<E> extends Iterable<E> {
     public int size();
     public E get(int index);
     public int indexOf(E value);
+    public String toString();
     public boolean isEmpty();
     public boolean contains(E value);
     public void add(E value);
