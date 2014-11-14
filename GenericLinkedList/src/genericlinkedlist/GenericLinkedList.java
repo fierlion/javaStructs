@@ -20,6 +20,10 @@ public class GenericLinkedList<E> implements List<E>{
     private ListNode tail;
     private int size;
     
+    /**
+     * constructor for GenericLinkedList
+     * creates sentinels tail / head to avoid errors
+     */
     public GenericLinkedList(){
 	//create sentinels
 	head = new ListNode();
@@ -30,6 +34,9 @@ public class GenericLinkedList<E> implements List<E>{
 	size = 0;
     }
     
+    /**
+     * @return size 
+     */
     @Override
     public int size() {
 	return size;
@@ -45,6 +52,9 @@ public class GenericLinkedList<E> implements List<E>{
 	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * @return boolean True if array size == 0 
+     */
     @Override
     public boolean isEmpty() {
 	return (size == 0);
@@ -55,6 +65,11 @@ public class GenericLinkedList<E> implements List<E>{
 	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * method to append to end of array
+     * post: value is at end of array, size += 1
+     * @param value to be added to end of array
+     */
     @Override
     public void add(E value) {
 	ListNode current = head;
@@ -63,42 +78,89 @@ public class GenericLinkedList<E> implements List<E>{
 	    prev = current;
 	    current = current.next;
 	}
-	ListNode noobie = new ListNode(value);
-	noobie.next = current.next;
-	noobie.prev = current;
+	ListNode noobie = new ListNode(current, current.next, value);
 	current.next.prev = noobie;
 	current.next = noobie;
 	size += 1;
     }
 
+    /**
+     * method to add value at position index
+     * pre: index < size
+     * post: value is added at position index, size += 1
+     * @param index position where value will be added
+     * @param value to be added
+     */
     @Override
     public void add(int index, E value) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (index < size) {
+	   ListNode current = head;
+	   ListNode prev = head;
+	   for (int i = 0; i < index; i++) {
+	       prev = current;
+	       current = current.next;
+	   }
+	   ListNode noobie = new ListNode(current, current.next, value);
+	   current.next.prev = noobie;
+	   current.next = noobie;
+	   size += 1;
+	}
+	else {
+	    throw new IllegalArgumentException("size < " + index);
+	}
     }
 
+    /**
+     * method to remove value at position index
+     * pre: index < size
+     * post: value is removed from array, size -= 1
+     * @param index position where value will be removed
+     */
     @Override
     public void remove(int index) {
-	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	if (index < size){
+	    ListNode current = head.next;
+	    ListNode prev = head;
+	    for (int i = 0; i < index; i++) {
+		prev = current;
+		current = current.next;
+	    }
+	    current.next.prev = prev;
+	    prev.next = current.next;
+	    //remove references to current;
+	    current.next = null;
+	    current.prev = null;
+	
+	    size -= 1;
+	}
+	else {
+	    throw new IllegalArgumentException("size < " + index);
+	}
     }
+  
 
     @Override
     public Iterator<E> iterator() {
 	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    /**
+     * @return formatted string representation of the array
+     * in format: [ E, E, E ]
+     */
     @Override 
     public String toString(){
 	if (size == 0) {
-	    return "[]";
+	    return "[ ]";
 	}
 	else {
-	    String result = "[" + head.next.data.toString();
+	    String result = "[ " + head.next.data.toString();
 	    ListNode current = head.next;
 	    while (current.next != tail) {
 		result += ", " + current.next.data.toString();
 		current = current.next;
 	    }
-	    return result + "]";
+	    return result + " ]";
 	}
     }
 }
