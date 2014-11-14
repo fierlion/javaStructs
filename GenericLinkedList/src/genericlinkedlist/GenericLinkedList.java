@@ -17,13 +17,19 @@ import java.util.Iterator;
  */
 public class GenericLinkedList<E> implements List<E>{
     private ListNode head;
+    private ListNode tail;
     private int size;
     
-    GenericLinkedList(){
-	head = null;
+    public GenericLinkedList(){
+	//create sentinels
+	head = new ListNode();
+	tail = new ListNode();
+	head.next = tail;
+	tail.prev = head;
+	//initialize size
 	size = 0;
     }
-
+    
     @Override
     public int size() {
 	return size;
@@ -51,17 +57,17 @@ public class GenericLinkedList<E> implements List<E>{
 
     @Override
     public void add(E value) {
-	if (head != null){
-	    ListNode current = head;
-	    ListNode prev = head;
-	    while (current.next != null){
-		current = current.next;
-	    }
-	    current.next = new ListNode(value);
+	ListNode current = head;
+	ListNode prev = head;
+	while (current.next != tail) {
+	    prev = current;
+	    current = current.next;
 	}
-	else {
-	    head = new ListNode(value);
-	}
+	ListNode noobie = new ListNode(value);
+	noobie.next = current.next;
+	noobie.prev = current;
+	current.next.prev = noobie;
+	current.next = noobie;
 	size += 1;
     }
 
@@ -80,5 +86,19 @@ public class GenericLinkedList<E> implements List<E>{
 	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    @Override 
+    public String toString(){
+	if (size == 0) {
+	    return "[]";
+	}
+	else {
+	    String result = "[" + head.next.data.toString();
+	    ListNode current = head.next;
+	    while (current.next != tail) {
+		result += ", " + current.next.data.toString();
+		current = current.next;
+	    }
+	    return result + "]";
+	}
+    }
 }
