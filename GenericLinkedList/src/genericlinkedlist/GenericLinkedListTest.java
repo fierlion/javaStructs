@@ -59,5 +59,9 @@ public class GenericLinkedListTest {
 	
 	System.out.println(list2.toString());
 	
+	list2.reverse();
+	System.out.println(list2.toString());
+	
+	
     }
 }
