@@ -10,13 +10,13 @@ package binarysearchtree;
  * @author rayfoote
  */
 public interface SearchTree {
-    public void add(TreeNode rootIn, int value);
+    public TreeNode insert(TreeNode rootIn, int value);
     public boolean contains(TreeNode rootIn, int value);
-    public void remove(TreeNode rootIn, int value);
+    public TreeNode remove(TreeNode rootIn, int value);
     public int sum(TreeNode rootIn);
     public int countLeaves(TreeNode rootIn);
     public void printPre(TreeNode rootIn);
     public void printIn(TreeNode rootIn);
     public void printPost(TreeNode rootIn);
-    public void printSideways(TreeNode rootIn);
+    public void printSideways(TreeNode rootIn, int level);
 }
