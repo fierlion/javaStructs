@@ -7,7 +7,7 @@ package binarytree;
 
 /**
  *
- * @author rfoote
+ * @author rfoote/ Reges/Stepp
  */
 public class TreeNode {
     public int data;
