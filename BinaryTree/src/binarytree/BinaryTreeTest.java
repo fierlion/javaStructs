@@ -23,5 +23,8 @@ public class BinaryTreeTest {
         System.out.println();
         System.out.println("sideways: ");
         tree1.printSideways(tree1.getRoot(), 0);
+        System.out.println("Tree Sum: " + tree1.sum(tree1.getRoot()));
+        System.out.println("Tree Levels: " + tree1.countLevels(tree1.getRoot()));
+        System.out.println("Tree Leaves: " + tree1.countLeaves(tree1.getRoot()));
     }
 }
