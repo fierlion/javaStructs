@@ -35,6 +35,37 @@ public class BinaryTree implements Tree{
         }
     }
     
+    public int sum(TreeNode rootIn) {
+        if (rootIn == null) {
+            return 0;
+        }
+        else {
+            return sum(rootIn.left) + sum(rootIn.right) + rootIn.data;
+        }
+    }
+    
+    public int countLevels(TreeNode rootIn) {
+        if (rootIn == null) {
+            return 0;
+        }
+        else {
+            return 1 + Math.max(countLevels(rootIn.left), countLevels(rootIn.right));
+        }
+    }
+    
+    public int countLeaves(TreeNode rootIn) {
+        if (rootIn == null) {
+            return 0;
+        }
+        //it's a leaf!
+        else if (rootIn.left == null && rootIn.right == null) {
+            return 1;
+        }
+        else {
+            return (countLeaves(rootIn.left) + countLeaves(rootIn.right));
+        }
+    }
+    
     @Override
     public void printPreorder(TreeNode rootIn) {
         if (rootIn != null) {
