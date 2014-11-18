@@ -19,8 +19,10 @@ public class SortingAlgos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+	String test1 = "String";
+	String test2 = "String2";
 	String [] ranks = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
-	//String [] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
+	String [] suits = {"Clubs", "Diamonds", "Hearts", "Spades"};
 	Integer [] numArr = {0,1,2,3,4,5,6,7,8,9,200,9,-23};
 	int [] intArr = {0,1,2,3,4,5,6,7,8,9,200,9,-23};
 	
@@ -37,8 +39,14 @@ public class SortingAlgos {
 	System.out.println(numArr[0]);
 	
 	BinarySearchInt bsi = new BinarySearchInt();
-	int ansIndx = bsi.bsi(intArr, 5);
-	System.out.println(ansIndx);
+	int intAnsIndx = bsi.bsi(intArr, 5);
+	System.out.println(intAnsIndx);
+	
+	BinarySearchString bss = new BinarySearchString();
+	int strAnsIndx = bss.bss(suits, "Diamonds", 0, suits.length - 1);
+	int strAnsIndxBad = bss.bss(suits, "Dogs", 0, suits.length - 1);
+	System.out.println(strAnsIndx);
+	System.out.println(strAnsIndxBad);
     }
     
 }
