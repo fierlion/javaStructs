@@ -10,15 +10,15 @@ package sortingalgos;
  * @author rfoote
  */
 public class BinarySearchInt {
-    public int bsi(int [] nums, int target) {
+    public int bsi(int [] arrIn, int val) {
 	int min = 0;
-	int max = nums.length - 1;
+	int max = arrIn.length - 1;
 	while (min <= max) {
 	    int mid = (max + min) / 2;
-	    if (nums[mid] == target) {
+	    if (arrIn[mid] == val) {
 		return mid;
 	    }
-	    else if (nums[mid] < target) {
+	    else if (arrIn[mid] < val) {
 		min = mid + 1;
 	    }
 	    else {
