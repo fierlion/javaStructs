@@ -24,8 +24,6 @@ public class NthToLast <E>{
 	    }
 	    else throw new IllegalArgumentException("List size > nth");
 	}
-	//System.out.println(li.next());
-	//System.out.println(linth.next());
 	while (li.hasNext()) {
 	    li.next();
 	    linth.next();
