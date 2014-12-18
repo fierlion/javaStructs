@@ -25,7 +25,9 @@ public class TspNn {
     }
     
     private Point findMinDist(Point pointIn) {
-	
+	//filler return object/statement
+	Point min = new Point(0,0);
+	return min;
     }
     
 }
